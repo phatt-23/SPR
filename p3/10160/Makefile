@@ -1,2 +1,2 @@
 all:
-	python main.py < sample2.in
+	python main2.py < sample2.in

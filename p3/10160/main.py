@@ -9,22 +9,6 @@ def load_line():
 def parse_ints(line):
     return list(map(int, line.split()))
 
-def valid_coloring(graph, colored):
-    for v in range(len(graph)):
-        if colored[v]:
-            continue
-
-        colored_neighbour = False
-        for n in graph[v]:
-            if colored[n]:
-                colored_neighbour = True
-                break 
-
-        if not colored_neighbour: 
-            return False
-
-    return True
-
 NOT_REACHED = -2
 COLORED_UNREACHED = -1
 
@@ -36,12 +20,12 @@ def all_reached(reached):
 
 def stations_color(graph, idx, n, colored, colored_count, min_count, reached):
 
-    if idx == n:
-        return min_count
+    if all_reached(reached):  
+        return colored_count
     elif colored_count >= min_count:
         return min_count
-    elif all_reached(reached):  
-        return colored_count
+    elif idx == n:
+        return min_count
     else:
         # case 1: dont color
         didnt_color_count = stations_color(graph, idx + 1, n, colored, colored_count, min_count, reached)
@@ -128,8 +112,10 @@ if __name__ == "__main__":
 
         for line in lines[i:i + m_edges]:
             u, v = parse_ints(line)
-            graph[u - 1].append(v - 1)
-            graph[v - 1].append(u - 1)
+            u -= 1
+            v -= 1
+            graph[u].append(v)
+            graph[v].append(u)
 
         i += m_edges
 
