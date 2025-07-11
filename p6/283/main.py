@@ -4,14 +4,9 @@ from math import log2, ceil
 INF = 0xffff_ffff_ffff_ffff
 
 def assign_bits(freq, n, max_step, bits, idx, code_length, memo, best_total_bits=INF, depth=0):
-    # SPACE = '  ' * depth
-    # print(SPACE, 'idx:', idx, 'code_length:', code_length, 'n:', n, 'memo len:', len(memo), len(memo[0]))
     if idx >= n:
-        # total = sum(i*j for i,j in zip(freq, bits))
-        # print(SPACE, f"{bits = } | {total = }")
         return 0
     elif memo[idx][code_length] != -1:
-        # print('MEMO HIT', idx, code_length)
         return memo[idx][code_length]
     else:
         for step in range(1, max_step + 1):
@@ -22,13 +17,11 @@ def assign_bits(freq, n, max_step, bits, idx, code_length, memo, best_total_bits
                 max_assignable -= 1 
 
 
-            # print(SPACE, f"{max_assignable = }, {remaining = }")
             assign_now = min(max_assignable, remaining)
             
             coded_chars = 0
 
             curr_code_length = code_length + step
-            # print(SPACE, f"{step = } for {assign_now = }, {curr_code_length = }")
 
             for i in range(assign_now):
                 bits[idx + i] = curr_code_length
@@ -63,8 +56,6 @@ def encode(word):
     code_length = 0
     memo = [[-1] * (n + 1) for _ in range(n)]
 
-    # print(f"{freq = }, {n = }, {max_step = }") 
-
     result = assign_bits(freq, n, max_step, bits, idx, code_length, memo)
     return result
 
@@ -80,7 +71,6 @@ if __name__ == "__main__":
 
         word = ""
         for i in range(m):
-            # print(f'"{data[idx + i]}"')
             word += data[idx + i]
 
         result = encode(word)
