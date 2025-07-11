@@ -1,0 +1,39 @@
+12
+3
+Hello Contestant,$
+Please write a program which gives$
+the text Hello world.$
+1
+To be or not to be, that is the question.$
+1
+         Tobeornottobe,thatisthequestion.$
+1
+Tobeornottobe,thatisthequestion.         $
+1
+          $
+5
+-,$
+$
+$
+$
+$
+2
+aabbcc$
+$
+2
+aabbcc$
+ddeeff$
+2
+aabbcc $
+ddeeff $
+1
+abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLM.N,OP-QRSTUVWXYZ$
+3
+$
+$
+$
+4
+Wrong problem statement!
+Should be able to accept all characters, e.g.: 0123456789 *!^%@*&#*)
+ NO dollar sign at the EOL with trailing spaces:          
+$
