@@ -1,0 +1,167 @@
+python main.py < sample.in
+program sort(input,output);
+var
+a,b,c,d : integer;
+begin
+    readln(a,b,c,d);
+                                 [3, 2, 1, 0] start
+                                 [0, 3, 2, 1] start shift
+                                 [1, 0, 3, 2] shift
+                                 1 0 if
+    if 0 < 1 then
+                                 [2, 1, 0, 3] shift
+                                 1 0 if
+        if 1 < 2 then
+                                 [3, 2, 1, 0] shift
+                                 1 0 if
+            if 2 < 3 then
+                                 [3, 2, 1, 0] print
+                writeln(0,1,2,3)
+                                 [2, 3, 1, 0] swap 0 1
+            else
+                                 2 1 if
+            if 1 < 3 then
+                                 [2, 3, 1, 0] print
+                writeln(0,1,3,2)
+                                 [2, 1, 3, 0] swap 1 2
+            else
+                                 3 2 if
+            if 0 < 3 then
+                                 [2, 1, 3, 0] print
+                writeln(0,3,1,2)
+                                 [2, 1, 0, 3] swap 2 3
+            else
+                                 last iter: idx+1=4, n=4
+                                 [2, 1, 0, 3] print
+                writeln(3,0,1,2)
+                                 [1, 2, 0, 3] swap 0 1
+        else
+                                 2 1 if
+        if 0 < 2 then
+                                 [3, 1, 2, 0] shift
+                                 1 0 if
+            if 1 < 3 then
+                                 [3, 1, 2, 0] print
+                writeln(0,2,1,3)
+                                 [1, 3, 2, 0] swap 0 1
+            else
+                                 2 1 if
+            if 2 < 3 then
+                                 [1, 3, 2, 0] print
+                writeln(0,2,3,1)
+                                 [1, 2, 3, 0] swap 1 2
+            else
+                                 3 2 if
+            if 0 < 3 then
+                                 [1, 2, 3, 0] print
+                writeln(0,3,2,1)
+                                 [1, 2, 0, 3] swap 2 3
+            else
+                                 last iter: idx+1=4, n=4
+                                 [1, 2, 0, 3] print
+                writeln(3,0,2,1)
+                                 [1, 0, 2, 3] swap 1 2
+        else
+                                 last iter: idx+1=3, n=4
+                                 [3, 1, 0, 2] shift
+                                 1 0 if
+            if 1 < 3 then
+                                 [3, 1, 0, 2] print
+                writeln(2,0,1,3)
+                                 [1, 3, 0, 2] swap 0 1
+            else
+                                 2 1 if
+            if 0 < 3 then
+                                 [1, 3, 0, 2] print
+                writeln(2,0,3,1)
+                                 [1, 0, 3, 2] swap 1 2
+            else
+                                 3 2 if
+            if 2 < 3 then
+                                 [1, 0, 3, 2] print
+                writeln(2,3,0,1)
+                                 [1, 0, 2, 3] swap 2 3
+            else
+                                 last iter: idx+1=4, n=4
+                                 [1, 0, 2, 3] print
+                writeln(3,2,0,1)
+                                 [0, 1, 2, 3] swap 0 1
+    else
+                                 last iter: idx+1=2, n=4
+                                 [3, 0, 1, 2] shift
+                                 1 0 if
+        if 0 < 3 then
+                                 [2, 3, 0, 1] shift
+                                 1 0 if
+            if 3 < 2 then
+                                 [2, 3, 0, 1] print
+                writeln(1,0,3,2)
+                                 [3, 2, 0, 1] swap 0 1
+            else
+                                 2 1 if
+            if 0 < 2 then
+                                 [3, 2, 0, 1] print
+                writeln(1,0,2,3)
+                                 [3, 0, 2, 1] swap 1 2
+            else
+                                 3 2 if
+            if 1 < 2 then
+                                 [3, 0, 2, 1] print
+                writeln(1,2,0,3)
+                                 [3, 0, 1, 2] swap 2 3
+            else
+                                 last iter: idx+1=4, n=4
+                                 [3, 0, 1, 2] print
+                writeln(2,1,0,3)
+                                 [0, 3, 1, 2] swap 0 1
+        else
+                                 2 1 if
+        if 1 < 3 then
+                                 [2, 0, 3, 1] shift
+                                 1 0 if
+            if 0 < 2 then
+                                 [2, 0, 3, 1] print
+                writeln(1,3,0,2)
+                                 [0, 2, 3, 1] swap 0 1
+            else
+                                 2 1 if
+            if 3 < 2 then
+                                 [0, 2, 3, 1] print
+                writeln(1,3,2,0)
+                                 [0, 3, 2, 1] swap 1 2
+            else
+                                 3 2 if
+            if 1 < 2 then
+                                 [0, 3, 2, 1] print
+                writeln(1,2,3,0)
+                                 [0, 3, 1, 2] swap 2 3
+            else
+                                 last iter: idx+1=4, n=4
+                                 [0, 3, 1, 2] print
+                writeln(2,1,3,0)
+                                 [0, 1, 3, 2] swap 1 2
+        else
+                                 last iter: idx+1=3, n=4
+                                 [2, 0, 1, 3] shift
+                                 1 0 if
+            if 0 < 2 then
+                                 [2, 0, 1, 3] print
+                writeln(3,1,0,2)
+                                 [0, 2, 1, 3] swap 0 1
+            else
+                                 2 1 if
+            if 1 < 2 then
+                                 [0, 2, 1, 3] print
+                writeln(3,1,2,0)
+                                 [0, 1, 2, 3] swap 1 2
+            else
+                                 3 2 if
+            if 3 < 2 then
+                                 [0, 1, 2, 3] print
+                writeln(3,2,1,0)
+                                 [0, 1, 3, 2] swap 2 3
+            else
+                                 last iter: idx+1=4, n=4
+                                 [0, 1, 3, 2] print
+                writeln(2,3,1,0)
+end.
