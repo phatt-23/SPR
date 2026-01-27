@@ -1,5 +1,6 @@
 import sys
 from collections import deque, defaultdict
+from pprint import pprint
 
 INF = 0xFFFF_FFFF_FFFF_FFFF
 
@@ -37,6 +38,11 @@ def erdos(papers, queries):
 
                 adj[u].append(v)
                 adj[v].append(u)
+
+    # print('adj')
+    # pprint(adj)
+    # print('numbering')
+    # pprint(numbering)
     
     if source is None:
         return [INF] * len(queries)
@@ -53,6 +59,9 @@ def erdos(papers, queries):
             if dist[v] == INF:
                 dist[v] = dist[u] + 1
                 queue.append(v)
+
+    # print('dist')
+    # pprint(dist)
 
     return [dist[numbering[q]] if q in numbering else INF for q in queries]
 

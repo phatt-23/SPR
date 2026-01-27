@@ -1,14 +1,16 @@
 import sys
 from math import log2, ceil
+from pprint import pprint
 
 INF = 0xffff_ffff_ffff_ffff
 
-def assign_bits(freq, n, max_step, bits, idx, code_length, memo, best_total):
+def assign_bits(freq, n, max_step, bits, idx, code_length, memo):
     if idx >= n:
         return 0
     elif memo[idx][code_length] != -1:
         return memo[idx][code_length]
     else:
+        best_total = INF
         for step in range(1, max_step + 1):
             remaining = n - idx 
 
@@ -27,7 +29,7 @@ def assign_bits(freq, n, max_step, bits, idx, code_length, memo, best_total):
                 coded_chars += freq[idx + i]
 
             # recurse
-            sub_total = assign_bits(freq, n, max_step, bits, idx + assign_now, current_code_length, memo, best_total)
+            sub_total = assign_bits(freq, n, max_step, bits, idx + assign_now, current_code_length, memo)
             
             best_total = min(current_code_length * coded_chars + sub_total, best_total)
 
@@ -55,9 +57,8 @@ def encode(word):
     idx = 0
     code_length = 0
     memo = [[-1] * n for _ in range(n)]
-    best_total = INF
 
-    result = assign_bits(freq, n, max_step, bits, idx, code_length, memo, best_total)
+    result = assign_bits(freq, n, max_step, bits, idx, code_length, memo)
     return result
 
 if __name__ == "__main__":

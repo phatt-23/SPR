@@ -36,7 +36,12 @@ def reconstruct(prev: list[list[int]], room, light, depth = 0):
 def solve(villa: list[list[int]], lights: list[list[int]]):
     room_count = len(villa)
 
+    # visited[room im standing in][light state of all rooms] => True/False 
+    # have i encountered this state already?
     visited = [[False] * 2 ** room_count for _ in range(room_count)]
+    
+    # prev[room][light state] => how i got here 
+    # either by just entering the room, or by switching the lights on
     prev = [[-1] * 2 ** room_count for _ in range(room_count)]
 
     Q = [(0, 1)]  # room 0 = hallway with lights on
@@ -62,7 +67,8 @@ def solve(villa: list[list[int]], lights: list[list[int]]):
                     Q.append( (room, next_light) )
                     # im standing in this room and switched on the light
                     if prev[room][next_light] == -1:
-                        # how do i know if im standing in room (1 << room) and switching (1 << switch) or standing in (1 << switch) and turn on (1 << room)??
+                        # i got to this (room, next_light) state by 
+                        # standing in the room (1 << room) and switching on the lights of the room (1 << switch)
                         prev[room][next_light] = (1 << room) | (1 << switch)  
 
         for next_room, is_connected in enumerate(villa[room]):
